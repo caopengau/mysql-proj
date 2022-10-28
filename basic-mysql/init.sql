@@ -2,7 +2,7 @@ GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
 
 USE testing;
 
-DROP TABLE IF EXISTS `order`;
+DROP TABLE IF EXISTS `orders`;
 
 DROP TABLE IF EXISTS users;
 
@@ -60,7 +60,7 @@ VALUES
 		40.0
 	);
 
-CREATE TABLE `order` (
+CREATE TABLE `orders` (
 	id SERIAL PRIMARY KEY,
 	coffeeId BIGINT UNSIGNED NOT NULL,
 	userId BIGINT UNSIGNED NOT NULL,
@@ -71,9 +71,9 @@ CREATE TABLE `order` (
 	CONSTRAINT fk_userId FOREIGN KEY (userId) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
--- insert data into order table
+-- insert data into orders table
 INSERT INTO
-	`order` (coffeeId, userId, quantity)
+	`orders` (coffeeId, userId, quantity)
 VALUES
 	(1, 1, 2),
 	(2, 2, 1);
